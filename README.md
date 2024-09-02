@@ -1,6 +1,5 @@
 # Safer-Drive
  Driving made Safer....
-# SaferDrive
 
 SafeDrive is a drowsiness detection application using YOLO (You Only Look Once) for real-time object detection. The application monitors driver behavior, detects signs of drowsiness or yawning, and triggers alerts if necessary. It utilizes the Twilio API to send emergency messages with location information when the alert is triggered.
 

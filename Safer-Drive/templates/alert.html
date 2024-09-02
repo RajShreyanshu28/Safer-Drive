@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drowsiness Alert!</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/alert.css') }}">
+  <script src="{{ url_for('static', filename='js/alert.js') }}"></script>
+</head>
+<body>
+  <h1>Drowsiness Detected!</h1>
+  <p class="alert-box">Please take a break to avoid driving while drowsy.</p>
+  <button onclick="redirectToHome()">Close Alert</button>
+  
+  <p class="countdown">Time left: 30 seconds</p> 
+  <p class = "alert-box">When timer reaches 0, I am going to send an emergency message with your current location for help. If you don't want it click on Close Alert.</p>
+  <audio id="alert-sound" src="{{ url_for('static', filename='alert.mp3') }}" preload="auto"></audio>
+  
+</body>
+</html>

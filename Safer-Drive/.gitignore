@@ -1,0 +1,29 @@
+# Environment configuration file
+.env
+
+# Directories containing model training files
+train/
+valid/
+
+# IDE or editor configuration files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python specific files
+__pycache__/
+*.pyc
+*.pyo
+
+# Log files
+*.log
+
+# Pyenv
+.python-version
+
+# Virtual environment
+venv/

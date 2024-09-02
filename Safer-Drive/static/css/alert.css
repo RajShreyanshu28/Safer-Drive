@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  color: #ff1500;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.alert-box {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 500px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #54595f;
+  color: #f4f1f1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+.countdown {
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+.geoBtn {
+  background-color: #28a745;
+}
+
+.geoBtn:hover {
+  background-color: #218838;
+}
+
+.showDetails, .fullAddress, .formattedAddress {
+  margin: 10px 0;
+  color: #333;
+  font-size: 1em;
+}

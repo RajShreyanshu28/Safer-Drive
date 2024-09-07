@@ -5,10 +5,11 @@ import time
 from twilio.rest import Client
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 
 load_dotenv()
 app = Flask(__name__)
-
+CORS(app)
 # Path to your YOLO model weights
 model_path = r'runs/detect/train6/weights/best.pt'
 

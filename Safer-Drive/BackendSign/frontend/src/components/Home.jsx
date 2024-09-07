@@ -1,17 +1,29 @@
 import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Home = () => {
-  useEffect(() => {
-    // Redirect to the Flask application after 3 seconds
+  // useEffect(() => {
+  //   // Redirect to the Flask application after 3 seconds
     
+  //   const timer = setTimeout(() => {
+  //     window.location.href = 'http://localhost:5000/';
+  //   }, 3000);
+
+  //   // Cleanup the timer when the component is unmounted
+  //   return () => clearTimeout(timer);
+  // }, []);
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to the Drowsiness component after 3 seconds
     const timer = setTimeout(() => {
-      window.location.href = 'http://localhost:5000/';
+      navigate('/realhome');
     }, 3000);
 
     // Cleanup the timer when the component is unmounted
     return () => clearTimeout(timer);
-  }, []);
+  }, [navigate]);
 
   return (
     <div style={{ backgroundImage: "linear-gradient(#00d5ff,#0095ff,rgba(93,0,255,.555))" }} className="d-flex flex-column justify-content-center align-items-center text-center vh-100">

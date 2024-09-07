@@ -7,81 +7,20 @@ body {
   height: 100%;
 }
 
-#intro {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: url('/static/images/.jpg') no-repeat center center/cover;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  background-color: #ffffff;
-}
-
-.car {
-  width: 50%;
-  max-width: 450px;
-  height: auto;
-  margin-right: 20px;
-  border-radius: 100rem;
-  margin-left: 6rem;
-  margin-top: 1rem;
-  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
-}
-
-.car:hover{
-  border-color: #181819;
-  transform: scale(1.1);
-}
-
-.intro-content {
-  flex: 1;
-  text-align: right;
-}
-
-.intro-content h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-  margin-right: 5rem;
-}
-
-.intro-content p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  margin-right: 5rem;
-}
-
-#enter-btn {
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  background-color: #54595f;
-  color: #f4f1f1;
-  border: none;
-  border-radius: 5px;
-  margin-right: 5rem;
-}
-
-#enter-btn:hover {
-  background-color: #181819;
-}
-
 #main-content {
   min-height: 100vh;
   padding: 50px 20px;
   margin: 0;
-  position: absolute;
-  top: 100vh;
+  position: relative; /* Change from absolute to relative */
+  top: 0; /* Reset top */
   left: 0;
   width: 100%;
-  transition: top 0.5s ease-in-out;
   background-color: #ffffff;
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space between items */
+  display: flex;
   flex-direction: column;
-  align-items: center; /* Center items vertically */
+  align-items: center;
 }
+
 
 #main-content.active {
   top: 0;

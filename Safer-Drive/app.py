@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, request, jsonify, redirect, url_for
+from flask import Flask, render_template, Response, request, jsonify, redirect, url_for, session
 import cv2
 from ultralytics import YOLO  # Import your YOLO model and prediction functions
 import time
@@ -133,28 +133,29 @@ def alert_timeout():
     data = request.get_json()
     latitude = data.get('latitude', None)
     longitude = data.get('longitude', None)
-    global number 
-    print(number)
-    if latitude is not None and longitude is not None:
-        print(f"Alert page was not closed within 30 seconds! Latitude: {latitude}, Longitude: {longitude}. The received no is {number}")
+
+    global emergency_numbers
+    print(f"Received emergency numbers from the alertside function: {emergency_numbers}")
+    if latitude and longitude and emergency_numbers:
+        print(f"This is an emergency message. I've got into an accident and need help. Please help me out. My current location is https://www.google.com/maps/search/?api=1&query={latitude},{longitude}")
         account_sid = os.getenv('TWILIO_ACCOUNT_SID')
         auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-
         twilio_number = os.getenv('TWILIO_NUMBER')
-
         client = Client(account_sid, auth_token)
 
-        message = client.messages.create(
-            body = f"This is an emergency message from {number}. I've got into an accident and need help. Please help me out. My current location is https://www.google.com/maps/search/?api=1&query={latitude},{longitude}",
-            from_ = twilio_number,
-            to = number
-        )
+        # for number in emergency_numbers:
+        #     message = client.messages.create(
+        #         body = f"This is an emergency message from {number}. I've got into an accident and need help. Please help me out. My current location is https://www.google.com/maps/search/?api=1&query={latitude},{longitude}",
+        #         from_=twilio_number,
+        #         to=number
+        #     )
+        #     print(f"Message sent to {number}: {message.body}")
 
-        print(message.body)
+        return jsonify({'message': 'Emergency alerts sent'}), 200
     else:
-        print("Alert page was not closed within 30 seconds, but no geolocation data received.")
-    
-    return jsonify({'message': 'Alert timeout received'})
+        print("No emergency numbers or geolocation data available.")
+        return jsonify({'message': 'Failed to send alerts'}), 400
+
 
 @app.route('/alert')
 def alert():
@@ -163,14 +164,27 @@ def alert():
 @app.route('/process_number', methods=['POST'])
 def process_number():
     data = request.get_json()
-    global number
-    number = data.get('number', None)
-    
-    if number is not None:
-        print(f"Received number: {number}")
-        return jsonify({'message': f'Received number: {number}'})
+    numbers = data.get('numbers', None)  # Extract the numbers from the request
+
+    if numbers:
+        print(f"Received emergency numbers: {numbers}")
+        global emergency_numbers  # Store the numbers in a global variable
+        emergency_numbers = numbers
+        return jsonify({'message': 'Emergency numbers received successfully!'}), 200
     else:
-        return jsonify({'message': 'No number received'}), 400
+        return jsonify({'message': 'No numbers received'}), 400
+
+# @app.route('/process_number', methods=['POST'])
+# def process_number():
+#     data = request.get_json()
+#     global number
+#     number = data.get('number', None)
+    
+#     if number is not None:
+#         print(f"Received number: {number}")
+#         return jsonify({'message': f'Received number: {number}'})
+#     else:
+#         return jsonify({'message': 'No number received'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)

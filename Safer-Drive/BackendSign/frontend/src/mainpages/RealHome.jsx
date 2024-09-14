@@ -75,7 +75,25 @@ const DrowsinessDetection = () => {
     const toggleDropdown = () => {
         setShowDropdown(prev => !prev);
     };
-
+    const handleEnterClick = () => {
+        fetch('http://127.0.0.1:5000/process_number', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ numbers }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Emergency numbers sent:', data);
+            // Now redirect to the Flask app
+            window.location.href = 'http://localhost:5000/';
+        })
+        .catch(error => {
+            console.error('Error sending emergency numbers:', error);
+        });
+    };
+    
     return (
         <div>
             <nav id="navbar">
@@ -122,7 +140,8 @@ const DrowsinessDetection = () => {
                     <a href="https://github.com/RajShreyanshu28?tab=repositories" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-github icon" style={{ fontSize: '40px', marginRight: '40px' }}></i>
                     </a>
-                    <button id="enter-btn" onClick={() => window.location.href = 'http://localhost:5000/'}>Enter</button>
+                    <button id="enter-btn" onClick={handleEnterClick}>Enter</button>
+
                 </div>
             </section>
 

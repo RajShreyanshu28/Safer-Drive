@@ -3,12 +3,16 @@
 
 SafeDrive is a drowsiness detection application using YOLO (You Only Look Once) for real-time object detection. The application monitors driver behavior, detects signs of drowsiness or yawning, and triggers alerts if necessary. It utilizes the Twilio API to send emergency messages with location information when the alert is triggered.
 
-![image](https://github.com/user-attachments/assets/c888aa4a-0fd6-4896-8288-b10c79eaf4dc)
+![image](https://github.com/user-attachments/assets/585d08c3-8ddc-48ea-a269-df26039fe306)
 
-Make sure to add an Emergency Contact here, so that you can receive the emergency message there.
+
+Make sure to add some Emergency Contacts here, so that you can receive the emergency message there.
 
 Alarm triggers:
-![image](https://github.com/user-attachments/assets/1af79041-5c92-426f-8867-5dfc406a7870)
+![image](https://github.com/user-attachments/assets/c6fc750f-d7d2-4672-ae0f-4a95b95593a7)
+
+Emergency Message:
+![image](https://github.com/user-attachments/assets/96f26344-0c84-4e2c-b7c2-b77d6541328d)
 
 ## Features
 

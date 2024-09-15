@@ -12,7 +12,8 @@ Alarm triggers:
 ![image](https://github.com/user-attachments/assets/c6fc750f-d7d2-4672-ae0f-4a95b95593a7)
 
 Emergency Message:
-![image](https://github.com/user-attachments/assets/96f26344-0c84-4e2c-b7c2-b77d6541328d)
+![image](https://github.com/user-attachments/assets/7df35d45-7cfe-4e38-9815-cfc4d3776d59)
+
 
 ## Features
 

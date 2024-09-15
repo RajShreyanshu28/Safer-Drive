@@ -39,15 +39,14 @@ Emergency Message:
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/RajShreyanshu28/SafeDrive.git
-    cd SafeDrive
+    git clone https://github.com/RajShreyanshu28/Safer-Drive
+    cd Safer-Drive
     ```
 
-2. **Set Up a Virtual Environment**
+2. **Install all dependencies**
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+     ```bash
+    npm install
     ```
 
 3. **Configure Environment Variables**
@@ -66,11 +65,13 @@ Emergency Message:
 
     ```bash
     python app.py
+    Safer-Drive\BackendSign\frontend> npm run dev
+    Safer-Drive\BackendSign\backend> node index.js
     ```
 
 2. **Access the Web Interface**
 
-    Open a web browser and go to `http://127.0.0.1:5000` to access the SaferDrive web interface.
+    Open a web browser and go to `http://localhost:5173/` to access the SaferDrive web interface.
 
 3. **Control the Prediction**
 
@@ -81,6 +82,7 @@ Emergency Message:
 - [YOLO](https://github.com/ultralytics/yolov8) for object detection
 - [Twilio](https://www.twilio.com/) for communication APIs
 - [Flask](https://flask.palletsprojects.com/) for web framework
+- [MongoDB](https://www.mongodb.com/) for Database
 - [Javascript] 
 
 

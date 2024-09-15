@@ -16,7 +16,8 @@ Emergency Message:
 
 
 ## Features
-
+- User Login/Register
+- Database of every user stored in MongoDB
 - Real-time video feed analysis using YOLO model
 - Detection of drowsiness and yawning
 - Alerts triggered when drowsiness is detected

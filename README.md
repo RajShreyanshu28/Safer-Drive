@@ -19,8 +19,10 @@ Alarm triggers:
 - Web interface for monitoring and control
 
 ## Requirements
-
-- Python 3.12 or higher
+- NodeJS
+- React
+- MongoDB
+- Python 
 - Flask
 - OpenCV
 - Ultralytics (YOLO)

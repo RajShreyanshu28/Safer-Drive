@@ -174,17 +174,6 @@ def process_number():
     else:
         return jsonify({'message': 'No numbers received'}), 400
 
-# @app.route('/process_number', methods=['POST'])
-# def process_number():
-#     data = request.get_json()
-#     global number
-#     number = data.get('number', None)
-    
-#     if number is not None:
-#         print(f"Received number: {number}")
-#         return jsonify({'message': f'Received number: {number}'})
-#     else:
-#         return jsonify({'message': 'No number received'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)

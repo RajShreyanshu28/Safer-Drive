@@ -11,13 +11,19 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        
         try {
+            // Check if all fields are populated
+            if (!name || !email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+    
             const result = await axios.post('http://localhost:3001/register', { name, email, password });
             console.log(result);
-
-            if (result.data.token) {
-                // Store JWT in localStorage or sessionStorage
+            
+            // Handle the response accordingly
+            if (result.status === 201) {
                 localStorage.setItem('token', result.data.token);
                 alert("Registered successfully! Please Login to proceed.");
                 navigate('/login');
@@ -26,10 +32,11 @@ const Register = () => {
                 navigate('/login');
             }
         } catch (err) {
-            console.error(err);
+            console.error('Error: ', err.response?.data || err.message);
             alert("An error occurred. Please try again.");
         }
-    }
+    };
+    
 
     return (
         <div>

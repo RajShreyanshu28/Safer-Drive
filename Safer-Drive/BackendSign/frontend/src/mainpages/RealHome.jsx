@@ -135,7 +135,7 @@ const DrowsinessDetection = () => {
             <section id="intro">
                 <img className="car" src={carsImage} alt="Car Image" />
                 <div className="intro-content">
-                    <h1>Welcome to the FUTURE of DRIVING</h1>
+                    <h1><b>Welcome to the FUTURE of DRIVING</b></h1>
                     <p>Ensure your safety by detecting drowsiness and yawning. Also, get help in an emergency....</p>
                     <a href="https://github.com/RajShreyanshu28?tab=repositories" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-github icon" style={{ fontSize: '40px', marginRight: '40px' }}></i>
@@ -146,14 +146,9 @@ const DrowsinessDetection = () => {
             </section>
 
             <section id="main-content">
-                <div id="caution">
-                    <h1>FOR BEST RESULTS</h1><br />
-                    <h3>1 - Try using this in a space without any other person.<br /></h3>
-                    <h3>2 - Make sure your face is clearly visible. <br /></h3>
-                    <h3>3 - It is advised to remove the spectacles if any glare occurs.<br /></h3>
-                </div>
+                
                 <div id="instructions">
-                    <h1>INSTRUCTIONS TO USE!</h1><br />
+                    <h2><b>INSTRUCTIONS TO USE!</b></h2><br />
                     <h3>1 - Allow LOCATION access.<br /></h3>
                     <h3>2 - Enter the phone number of one of your emergency contacts. <br /></h3>
                     <h3>3 - Adjust the camera such that only the driver's face is visible.<br /></h3>

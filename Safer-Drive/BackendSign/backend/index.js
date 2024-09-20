@@ -20,23 +20,47 @@ const saltRounds = 10; // Number of salt rounds for hashing
 const jwtSecret = process.env.JWT_SECRET || '8c5a7d2482c4f9e47c5b233e3a0c4e3b7e2b9a567f43d2b6f5b7a9b0b8d8b2f6'; // Add this to your .env file
 
 // Register Endpoint
+// app.post('/register', async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         const user = await FormDataModel.findOne({ email });
+
+//         if (user) {
+//             return res.status(400).json("Already registered");
+//         }
+
+//         // Hash the password
+//         const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+//         // Create a new user with the hashed password
+//         const newUser = await FormDataModel.create({ ...req.body, password: hashedPassword });
+//         res.status(201).json(newUser);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 app.post('/register', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        console.log(req.body);  // Log the received request body for debugging
+        const { email, password, name } = req.body;
+
+        if (!email || !password || !name) {
+            return res.status(400).json({ error: "All fields are required." });
+        }
+
         const user = await FormDataModel.findOne({ email });
 
         if (user) {
             return res.status(400).json("Already registered");
         }
 
-        // Hash the password
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        // Create a new user with the hashed password
-        const newUser = await FormDataModel.create({ ...req.body, password: hashedPassword });
+        const newUser = await FormDataModel.create({ name, email, password: hashedPassword });
         res.status(201).json(newUser);
     } catch (err) {
-        res.status(500).json(err);
+        console.error(err);  // Log the error on the server side
+        res.status(500).json({ error: "Server error" });
     }
 });
 

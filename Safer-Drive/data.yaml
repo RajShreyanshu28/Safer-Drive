@@ -1,6 +1,0 @@
-train: C:\MY\Miniconda_py\Drowsiness\YOLO-Drowsiness-Detection\train\images
-val: C:\MY\Miniconda_py\Drowsiness\YOLO-Drowsiness-Detection\valid\images
-test: C:\MY\Miniconda_py\Drowsiness\YOLO-Drowsiness-Detection\test\images
-
-nc: 3
-names: ["microsleep", "neutral", "yawning"]

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drowsiness Detection By Shreyanshu</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-left">
+      <img src="/static/images/sign.jpg" alt="Logo" class="logo">
+    </div>
+    <div class="nav-right">
+      <button id="logout-btn" onclick="logout()">Back</button> <!-- Logout button -->
+    </div>
+  </nav>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Input the Emergency Number</h2>
+      <div class="input-container">
+        <input type="number" id="input-number" placeholder="Enter a number" class="input">
+        <button class="phone" onclick="sendNumber()">Save</button>
+        <div id="response"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="main-content">
+    <div id="caution">
+      <h1>FOR BEST RESULTS</h1><br>
+      <h3>1 -> Try using this in a space without any other person.<br></h3>
+      <h3>2 -> Make sure your face is clearly visible. <br></h3>
+      <h3>3 -> It is advised to remove the spectacles if any glare occurs.<br></h3>
+    </div>
+    <div id="instructions">
+      <h1>INSTRUCTIONS TO USE!</h1><br>
+      <h3>1 -> Allow LOCATION access.<br></h3>
+      <h3>2 -> Enter the phone number of one of your emergency contacts. <br></h3>
+      <h3>3 -> Adjust the camera such that only the driver's face is visible.<br></h3>
+    </div>
+
+    <div id="response"></div>
+    <button id="start-button" onclick="togglePrediction()">Start Prediction</button>
+    <div>
+      <img id="video-stream" src="{{ url_for('video_feed') }}" alt="Live Video Stream">
+    </div>
+    
+    <div id="yawning-alert" class="alert-box">
+      <p>You're yawning!</p>
+    </div>
+  </section>
+  
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <script>
+    
+    function logout() {
+      // This could be adjusted based on your authentication setup
+      // For example, clearing session storage or redirecting to a login page
+      window.location.href = 'http://localhost:5173/realhome'; // Adjust this URL to your actual login page URL
+    }
+    
+    document.getElementById('popup-btn').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'flex'; // Show the popup
+    });
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none'; // Hide the popup
+    }
+
+    function submitInput() {
+      const inputValue = document.getElementById('popup-input').value;
+      console.log(inputValue); // Handle the input value as needed
+      closePopup(); // Close the popup after submission
+    }
+
+
+  </script>
+</body>
+</html>
